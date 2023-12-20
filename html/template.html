@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>数据提交与显示</title>
+    <link rel="stylesheet" href="style.css"> 
+    <script src="script.js"></script>
+    <!-- 引入Bootstrap CSS -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"> 
+</head>
+<body class="py-5">
+    <div class="container mt-5">
+        <!-- Card -->
+        <div class="card">
+          <div class="card-header">
+            数据提交
+          </div>
+          <div class="card-body">
+            <!-- Form inside card body -->
+            <form id="dataForm" action="/submit" method="post">
+              <div class="form-group">
+                <label for="name">姓名</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+              </div>
+              <button type="submit" class="btn btn-primary">提交</button>
+            </form>
+          </div>
+        </div>
+      
+        <!-- Data list -->
+        <div class="card mt-4">
+          <div class="card-header">
+            提交的数据列表
+          </div>
+          <ul id="dataList" class="list-group list-group-flush">
+            {{range .Lines}}
+            <li class="list-group-item">{{.}}</li>
+            {{end}}
+          </ul>
+        </div>
+      </div>
+      
+</body>
+</html>
